@@ -60,6 +60,7 @@ let questionNum = 0;
 // increments the score variable by 1 
 // updates the "score" number text in the quiz view
 function updateScore() {
+    console.log('inside updateScore');
     score++;
     $('.score').text(score);
 }
@@ -67,12 +68,14 @@ function updateScore() {
 // increments the questionNum variable by 1
 // updates the questionNum variable by 1
 function updateQuestionNum() {
+    console.log('updateQuestionNum');
     questionNum++;
     $('.questionNum').text(questionNum + 1);
 }
 
 // resets the text value for the score and questionNum variables
 function resetStats() {
+    console.log('resetStats');
     score = 0;
     questionNum = 0;
     $('.score').text(0);
@@ -81,6 +84,8 @@ function resetStats() {
 
 // begin quiz
 function startQuiz() {
+    console.log('startQuiz');
+    $('.altBox').hide();
     $('.startQuiz').on('click', '.start', function (event) {
         $('.startQuiz').hide();
         $('.questionNum').text(1);
@@ -91,6 +96,7 @@ function startQuiz() {
 
 // template for generating questions
 function createQuestion() {
+    console.log('inside createQuestion');
     if (questionNum < STORE.length) {
         return createPage(questionNum);
         } else {
@@ -102,11 +108,12 @@ function createQuestion() {
 
 // creates HTML for question
 function createPage(questionIndex) {
+    console.log("inside createPage");
     let formMaker = $(`<form>
         <fieldset class="questionForm">
             <legend class="questionText">${STORE[questionIndex].question}</legend>
         </fieldset>
-    </form>`);
+    </form>`)
 
     let fieldSelector = $(formMaker).find('fieldset');
 
@@ -116,14 +123,15 @@ function createPage(questionIndex) {
             <span class="answerOptions">${answerValue}</span>
           </label>`).appendTo(fieldSelector);
         });
-        $(`<button type="submit" class="submitAnswer button">Submit</button> `).appendTo(fieldSelector);
+        $(`<button type="submit" class="submit button">Submit</button>`).appendTo(fieldSelector);
         return formMaker;
 }
 
 // submits selected answer and checks it against the correct answer.
 // runs correct or wrong answer functions accordingly.
 function submitAnswer() {
-    $('.container').on('click', '.submitAnswer', function(event) {
+    console.log('inside submitAnswer');
+    $('.questionBox').on('.submit', function(event) {
         event.preventDefault();
         $('.altBox').hide();
         $('.response').show();
@@ -141,6 +149,7 @@ function submitAnswer() {
 // correct answer response
 // increments score variable by 1
 function correctAnswer() {
+    console.log('inside correctAnswer');
     $('.response').html(
         `<h3>Correct answer!</h3>
         <img src="images/rockhand.jpg" alt="rockon-hand">
@@ -152,6 +161,7 @@ function correctAnswer() {
 
 // wrong answer response
 function wrongAnswer() {
+    console.log('inside wrongAnswer');
     $('.response').html(
         `<h3>Wrong answer.</h3>
         <img src="images/brokendrum.jpg" alt="broken drum" class="broken-drum-pic"><br>
@@ -163,6 +173,7 @@ function wrongAnswer() {
 
 // generates the next question
 function nextQuestion() {
+    console.log('inside nextQuestion');
     $('.container').on('click', '.nextButton', function(event) {
         $('.altBox').hide();
         $('.questionBox').show();
@@ -173,6 +184,7 @@ function nextQuestion() {
 
 // calculate final score and give feedback at end of quiz
 function finalScore() {
+    console.log('inside finalScore');
     $('.final').show();
 
     const pass = [
@@ -206,6 +218,7 @@ function finalScore() {
 
 // restarts quiz
 function restartQuiz() {
+    console.log('inside restartQuiz');
     $('.container').on('click', '.restartButton', function(event) {
         event.preventDefault();
         resetStats();
