@@ -110,7 +110,7 @@ function createQuestion() {
 function createPage(questionIndex) {
     console.log("inside createPage");
     let formMaker = $(`<form>
-        <fieldset class="questionForm">
+        <fieldset class="styleForm">
             <legend class="questionText">${STORE[questionIndex].question}</legend>
         </fieldset>
     </form>`)
@@ -131,7 +131,7 @@ function createPage(questionIndex) {
 // runs correct or wrong answer functions accordingly.
 function submitAnswer() {
     console.log('inside submitAnswer');
-    $('.questionBox').on('.submit', function(event) {
+    $('.container').on('.submit', function(event) {
         event.preventDefault();
         $('.altBox').hide();
         $('.response').show();
@@ -228,8 +228,8 @@ function restartQuiz() {
 }
 
 // runs the functions 
-startQuiz();
-createQuestion();
-submitAnswer();
-nextQuestion();
-restartQuiz();
+    startQuiz();
+    createQuestion();
+    submitAnswer();
+    nextQuestion();
+    restartQuiz();
