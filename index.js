@@ -131,7 +131,7 @@ function createPage(questionIndex) {
 // runs correct or wrong answer functions accordingly.
 function submitAnswer() {
     console.log('inside submitAnswer');
-    $('.container').on('.submit', function(event) {
+    $('.container').on('submit', function(event) {
         event.preventDefault();
         $('.altBox').hide();
         $('.response').show();
