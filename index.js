@@ -112,12 +112,12 @@ function createPage(questionIndex) {
 
     STORE[questionIndex].answer.forEach(function (answerValue, answerIndex) {
         $(`<label class="answerIndex" for="${answerIndex}">
-            <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required>
+            <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required/>
             <span class="answerOptions">${answerValue}</span>
           </label><br>
           `).appendTo(fieldSelector);
         });
-        $(`<br><button type="submit" class="submitAnswer button">Submit</button > `).appendTo(fieldSelector);
+        $(`<br><button type="submit" class="submitAnswer button">Submit</button> `).appendTo(fieldSelector);
         return formMaker;
 }
 
