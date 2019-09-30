@@ -81,7 +81,7 @@ function resetStats() {
 
 // begin quiz
 function startQuiz() {
-    $('.startQuiz').on('click', '.submit', function (event) {
+    $('.startQuiz').on('click', '.start', function (event) {
         $('.startQuiz').hide();
         $('.questionNum').text(1);
         $('.questionBox').show();
@@ -104,7 +104,7 @@ function createQuestion() {
 function createPage(questionIndex) {
     let formMaker = $(`<form>
         <fieldset class="questionForm">
-            <legend class="questionText">${STORE[questionIndex].question}</legend><br>
+            <legend class="questionText">${STORE[questionIndex].question}</legend>
         </fieldset>
     </form>`);
 
@@ -112,12 +112,11 @@ function createPage(questionIndex) {
 
     STORE[questionIndex].answer.forEach(function (answerValue, answerIndex) {
         $(`<label class="answerIndex" for="${answerIndex}">
-            <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required/>
+            <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required>
             <span class="answerOptions">${answerValue}</span>
-          </label><br>
-          `).appendTo(fieldSelector);
+          </label>`).appendTo(fieldSelector);
         });
-        $(`<br><button type="submit" class="submitAnswer button">Submit</button> `).appendTo(fieldSelector);
+        $(`<button type="submit" class="submitAnswer button">Submit</button> `).appendTo(fieldSelector);
         return formMaker;
 }
 
@@ -143,9 +142,9 @@ function submitAnswer() {
 // increments score variable by 1
 function correctAnswer() {
     $('.response').html(
-        `<h3>Correct answer!</h3><br>
-        <img src="images/rockhand.jpg" alt="rockon-hand"><br>
-        <p>Keep on rockin!</p><br>
+        `<h3>Correct answer!</h3>
+        <img src="images/rockhand.jpg" alt="rockon-hand">
+        <p>Keep on rockin!</p>
         <button class="nextButton button" type="submit">Next</button>`
     );
     updateScore();
@@ -184,7 +183,7 @@ function finalScore() {
     ]
 
     const fail = [
-        "You don't know a thing about drums.",
+        "Don't be a dumb drummer.  Keep practicing.",
         'images/whiplashmad.jpg',
         'whiplash scene',
         'Try again.'
@@ -198,8 +197,8 @@ function finalScore() {
 
     return $('.final').html(
         `<h3>${array[0]}</h3><br>
-        <img src="${array[1]}" alt="${array[2]}" class="finalPic"><br>
-        <p>${array[3]}</p><br>
+        <img src="${array[1]}" alt="${array[2]}" class="finalPic">
+        <p>${array[3]}</p>
         <button type="submit" class="restartButton button">Restart</button>`
 
     );

@@ -26,11 +26,21 @@ h2 {
 }
 
 p {
-    font-size: 1.5em;
+    margin-top: .5em;
+    font-size: 1.7em;
 }
 
 h3 {
     font-size: 1.8em;
+    margin: .5em 0 .5em;
+}
+
+ul li {
+    list-style-type: none;
+    text-align: center;
+    color: white;
+    margin-top: 6px;
+    font-size: 2em;
 }
 
 main {
@@ -40,7 +50,7 @@ main {
 }
 
 .container {
-    background-color: white;
+    background-color: #ffffff;
     max-width: 800px;
     min-width: 400px;
     display: flex;
@@ -60,6 +70,13 @@ main {
     font: inherit;
     padding: 5px 20px;
     text-align: center;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #ffffff;
+    color: rgb(23, 23, 23);
+    border: rgb(23, 23, 23) solid 2px;
 }
 
 .startButton {
@@ -68,18 +85,12 @@ main {
 
 .nextButton {
     font-size: 2em;
+    margin-top: .5em;
 }
 
 .restartButton {
     font-size: 2em;
-}
-
-ul li {
-    list-style-type: none;
-    text-align: center;
-    color: white;
-    margin-top: 6px;
-    font-size: 2em;
+    margin-top: .5em;
 }
 
 .questionForm {
@@ -88,22 +99,22 @@ ul li {
     text-align: left;
 }
 
+label {
+    display: block;
+    padding: 0;
+    margin: .5em 0 .5em;
+}
+
 .radio {
-    margin-top: 15px;
+    position: relative;
+    bottom: 7px;
     text-align: left;
     margin-right: 8px;
-}
-
-.submitAnswer {
-    margin-top: 10px;
-}
-
-.nextButton {
-    margin-top: 10px;
+    cursor: pointer;
 }
 
 .finalPic {
     max-width: 600px;
     max-height: 600px;
-    margin: 10px;
+    margin: 0 .5em;
 }
